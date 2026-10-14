@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException, Response, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from models import Task, TaskCreate, TaskUpdate
+from database import session
 
 app = FastAPI()
 
@@ -42,6 +43,8 @@ tasks = [
 # Read all tasks
 @app.get("/tasks")
 def read_tasks():
+    db = session()
+    db.query()
     return tasks
 
 
